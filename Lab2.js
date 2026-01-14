@@ -2,12 +2,20 @@
 // Write code that counts the number of vowels in a string.
 // +1 bonus points if you ask for the string from the user
 //var sentence = "How many vowels do you think are in this one?";
-const vowels = ["a", "e", "i", "o", "u"]
+const readline = require('node:readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+
 
 
 function VowelCounter(sentence) {
 vowel_count = 0
 vowel_index = 0
+const vowels = ["a", "e", "i", "o", "u"]
 for(let i = 0; i < vowels.length; i++){
 
 for (let i = 0; i < sentence.length; i++) {
@@ -18,9 +26,15 @@ vowel_count++
 vowel_index++
 }
 return "There are " + vowel_count + " vowels in your sentence"
+
 }
 
-console.log(VowelCounter("How many vowels do you think are in this one?"))
+rl.question('Input a sentece to count the vowels ', (sentence) => {
+    console.log(VowelCounter(sentence));
+    rl.close();
+});
+
+
 
 
 

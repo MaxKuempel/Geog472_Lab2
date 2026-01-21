@@ -30,9 +30,13 @@ vowel_index++
 // If they are odd, multiple them and return or print the results.
 // If they are even, add them and return or print the results.
 // For example, [3, 5] would return 15; but [3, 6] would result in 9
+function q2_constants(){
 const first = [5, 7];
 const second = [12, 3];
 const third = [7, 7];
+console.log("constants loaded!")
+}
+
 
 function IsEven(input){
   
@@ -72,7 +76,37 @@ else {
 
 }
 
+document.getElementById("first_dis").innerHTML = OddAddition(first)
 
 function first_add(){
-  document.getElementById("first").innerHTML = OddAddition(first)
+  document.getElementById("first_dis").innerHTML = OddAddition(first)
+  console.log(OddAddition(first))
 }
+window.onload = function() {
+  first_add()
+};
+
+function testing(){
+  document.getElementById("test").innerHTML = 1 + 1
+}
+
+
+
+// Question 3 - FizzBuzz
+// This is a classic programming question.
+// Print out the numbers from 1 to 100, except
+// If the number is a multiple of three, print Fizz
+// If the number is a multiple of five, print Buzz
+// If the number is a multiple of three and five, print FizzBuzz
+// Your output might look something like 1, 2, Fizz, 4, Buzz, Fizz, 7, 8,
+//Fizz ....
+
+
+function FizzBuzz(){
+var list = []
+for(let i = 0; i < 100; i++) {
+  list[i] = i+1
+}
+console.log(list)
+document.getElementById("fizzbuzz").innerHTML = list
+} 

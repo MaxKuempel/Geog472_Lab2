@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<body>
+<body onload="q2_constants">
 <script src = "Lab2.js" ></script>
     <h1> Question 1: Vowel Counter</h1>
         
@@ -14,8 +14,13 @@
         </p>
 
 <h1> Question 2:</h1>
-    <p id = "first" onclick="first_add()"> 
-        test
-    </p>
+    <div id = "first_dis"> 
+<button onclick = "first_add()">First set</button> 
+
+    </div>
+    <div id = "test" onclick = "testing()">  default </div>
+
+<h1>Question 3:</h1>   
+<p id = fizzbuzz onmouseenter="FizzBuzz()"> click to fizzbuzz</p> 
 </body>
 </html>

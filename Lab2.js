@@ -4,15 +4,16 @@
 //var sentence = "How many vowels do you think are in this one?";
 
 function VowelCounter(sentence) {
-
-
+//covert to all lowercase
+  sentence_low = sentence.toLowerCase()
+//internal trackers
 vowel_count = 0
 vowel_index = 0
-const vowels = ["a", "e", "i", "o", "u"]
-for(let i = 0; i < vowels.length; i++){
+const vowels = ["a", "e", "i", "o", "u"] //define list of vowels
+for(let i = 0; i < vowels.length; i++){ //index through list of vowels
 
-for (let i = 0; i < sentence.length; i++) {
-if (sentence[i] == vowels[vowel_index])
+for (let i = 0; i < sentence_low.length; i++) { //run through sentence for each vowel
+if (sentence_low[i] == vowels[vowel_index])
 vowel_count++
  
 }
@@ -77,8 +78,18 @@ function first_add(){
   document.getElementById("first_dis").innerHTML = OddAddition(first)
   console.log(OddAddition(first))
 }
+function second_add(){
+  document.getElementById("second_dis").innerHTML = OddAddition(second)
+  console.log(OddAddition(second))
+}
+function third_add(){
+  document.getElementById("third_dis").innerHTML = OddAddition(third)
+  console.log(OddAddition(third))
+}
 window.onload = function() {
   first_add()
+  second_add()
+  third_add()
 };
 
 function testing(){
@@ -120,13 +131,13 @@ for(let i = 0; i < 100; i++) {
 }
 for(let j = 0; j < list.length; j++){
   if(Multiple3(list[j])&&Multiple5(list[j])){
-    list[j]= "fizzbuzz"
+    list[j]= "fizzbuzz "
   }
   else if (Multiple3(list[j])) {
-    list[j]= "fizz"
+    list[j]= "fizz "
   } 
   else if (Multiple5(list[j])) {
-    list[j] = "buzz"
+    list[j] = "buzz "
   }
   else{
     list[j]=list[j]
@@ -142,9 +153,7 @@ fizzbuzz_out.innerHTML = list
 
 window.onload = function initilize() {
   FizzBuzz();
-  car.start;
 }
-
 // Question 4 - Start my car
 // Create a car variable (object)
 // Give it the properties of make, model, year, and color
@@ -159,7 +168,8 @@ var car = {
   color: "Neon-Green", 
   start: function(){
     console.log("Vroom Vroom!");
-    
+    var vroom = new Audio("car-start-46813.mp3")
+    vroom.play();
   }
 }
 
@@ -177,6 +187,54 @@ var car = {
 var cities = ['Corvallis', 'Portland', 'Eugene', 'Albany']
 var pops = ['59920', '652500', '176650', '56470']
 
-function cities_create(input){
-  document.createElement
+function MakeCityTable(City, Population) {
+if (City.length == Population.length){
+// Drawn heavily from Ch2 of Reading
+var table = document.createElement("table");
+
+//make headers
+var header = document.createElement("tr");
+var cityH = document.createElement("th");
+cityH.innerHTML = "City";
+var popH = document.createElement("th");
+popH.innerHTML = "Population";
+
+//Build table structure
+header.appendChild(popH); //add pop to header
+header.appendChild(cityH); // add city to header
+table.appendChild(header); // add header to table
+
+//generate rows
+
+for (let i = 0; i < City.length; i++){
+var row = document.createElement("tr");
+
+var city_row = document.createElement("td");
+city_row.innerHTML = City[i];
+row.appendChild(city_row);
+
+var pop_row = document.createElement("td");
+pop_row.innerHTML = Population[i];
+row.appendChild(pop_row);
+
+table.appendChild(row);
+};
+
+//for (let i = 0; i < Population.length; i++){
+//var pop_row = document.createElement("td");
+//pop_row.innerHTML = Population[i];
+//row.appendChild(pop_row);
+//table.appendChild(row);
+//}
+
+//final output
+var tablestart = document.getElementById("mydiv"); // add all to div
+tablestart.appendChild(table);
 }
+
+else {
+  console.log("City and Population not Equal Length");
+};
+}
+
+MakeCityTable(cities,pops);

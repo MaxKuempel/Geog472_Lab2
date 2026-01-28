@@ -32,11 +32,8 @@ vowel_index++
 const first = [5, 7];
 const second = [12, 3];
 const third = [7, 7];
-console.log("constants loaded!")
 
-
-
-function IsEven(input){
+function IsEven(input){ //is it even?
   
   if ((input % 2) == 1) {
     return false
@@ -47,7 +44,7 @@ return true
   
 }
 
-function OddAddition(input)
+function OddAddition(input) //works for larger arrays than just 2
 {
 even_counter = 0
   for(let i = 0; i < input.length; i++)
@@ -57,14 +54,14 @@ even_counter ++
     }
   }
 
-if(even_counter == 0){
+if(even_counter == 0){ //if no evens, multiply
 product = input[0]
    for(let i = 1; i < input.length; i++){
     product = product * input[i]
   }
   return product
 }
-else {
+else { //if any evens found, sum inputs
     sum = 0
   for(let i = 0; i <input.length; i++){
     sum = sum + input[i]
@@ -74,27 +71,19 @@ else {
 
 }
 
-function first_add(){
+function first_add(){ //hard code to run first set when first button is hit
   document.getElementById("first_dis").innerHTML = OddAddition(first)
   console.log(OddAddition(first))
 }
-function second_add(){
+function second_add(){ //hard code to run second set when second button is hit
   document.getElementById("second_dis").innerHTML = OddAddition(second)
   console.log(OddAddition(second))
 }
-function third_add(){
+function third_add(){ //hard code to run third set when third button is hit
   document.getElementById("third_dis").innerHTML = OddAddition(third)
   console.log(OddAddition(third))
 }
-window.onload = function() {
-  first_add()
-  second_add()
-  third_add()
-};
 
-function testing(){
-  document.getElementById("test").innerHTML = 1 + 1
-}
 
 
 
@@ -106,7 +95,7 @@ function testing(){
 // If the number is a multiple of three and five, print FizzBuzz
 // Your output might look something like 1, 2, Fizz, 4, Buzz, Fizz, 7, 8,
 //Fizz ....
-function Multiple3(input){
+function Multiple3(input){ //return true if input is divisble by 3
   if ((input % 3)==0){
     return true
   }
@@ -115,7 +104,7 @@ function Multiple3(input){
   }
 }
 
-function Multiple5(input){
+function Multiple5(input){ //return true if input is divisble by 5
   if ((input % 5)==0){
     return true
   }
@@ -126,21 +115,21 @@ function Multiple5(input){
 
 function FizzBuzz(){
 var list = []
-for(let i = 0; i < 100; i++) {
+for(let i = 0; i < 100; i++) { //generate a list of 1-100
   list[i] = i+1
 }
-for(let j = 0; j < list.length; j++){
-  if(Multiple3(list[j])&&Multiple5(list[j])){
+for(let j = 0; j < list.length; j++){  //index through list
+  if(Multiple3(list[j])&&Multiple5(list[j])){ //if divisible by 3 AND 5
     list[j]= "fizzbuzz "
   }
-  else if (Multiple3(list[j])) {
+  else if (Multiple3(list[j])) { // else, if divisible by 3
     list[j]= "fizz "
   } 
-  else if (Multiple5(list[j])) {
+  else if (Multiple5(list[j])) { // else, if divisible by 5
     list[j] = "buzz "
   }
   else{
-    list[j]=list[j]
+    list[j]=list[j] //leave number the same if not divisible by 3 OR 5
   }
 }
 
